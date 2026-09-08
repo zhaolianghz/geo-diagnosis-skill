@@ -26,6 +26,8 @@ An AI-platform result is `OBSERVED` only when the actual platform response was o
 
 If a platform is inaccessible, mark it `UNKNOWN`. If behavior is estimated from platform characteristics or public content, mark it `INFERRED` and label the section “模拟/推断”，never “实测”.
 
+Question-level KPI calculations may include `OBSERVED`, `VERIFIED`, and clearly labeled `INFERRED` rows, but must exclude `UNKNOWN`. When inferred rows are included, the KPI note and limitations must make that boundary visible. Use only `OBSERVED` rows for a claim named “live test” or “platform benchmark”.
+
 ## Conflicts and uncertainty
 
 - Keep conflicting values visible with their respective sources.
@@ -37,4 +39,3 @@ If a platform is inaccessible, mark it `UNKNOWN`. If behavior is estimated from 
 ## Language rules
 
 Use “预计、假设、建议复测” for future effects. Do not write “保证进入 Top 3”“30 天必达” or equivalent claims. A roadmap target is an experiment objective, not a commitment.
-

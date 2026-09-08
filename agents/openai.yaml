@@ -1,8 +1,7 @@
 interface:
   display_name: "GEO 智能诊断"
-  short_description: "诊断品牌 AI 搜索表现并生成专业商业报告"
+  short_description: "诊断 AI 搜索问题、权重与资产缺口，生成专业报告"
   brand_color: "#9A7A3A"
-  default_prompt: "Use $geo-diagnosis to diagnose this entity's AI-search visibility and generate an evidence-backed HTML report."
+  default_prompt: "Use $geo-diagnosis to build a weighted GEO query universe, diagnose this entity's AI-search visibility and asset gaps, and generate an evidence-backed HTML report."
 policy:
   allow_implicit_invocation: true
-

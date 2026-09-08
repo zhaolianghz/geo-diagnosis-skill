@@ -23,10 +23,14 @@ class RenderReportTests(unittest.TestCase):
             "执行摘要",
             "核心指标",
             "GEO 能力评分",
+            "权重与得分解释",
+            "GEO 搜索问题版图",
             "AI 搜索表现",
             "竞争格局",
             "问题优先级",
             "机会地图",
+            "内容与知识资产蓝图",
+            "证据目录",
             "30 / 60 / 90 天路线图",
             "方法与限制",
         ]
@@ -36,6 +40,27 @@ class RenderReportTests(unittest.TestCase):
         self.assertIn("爱电竞", html)
         self.assertIn("OBSERVED", html)
         self.assertIn("INFERRED", html)
+
+    def test_renders_query_inventory_with_explainable_fields(self):
+        html = render_report(self.data)
+        self.assertIn("用户决策阶段", html)
+        self.assertIn("商业价值", html)
+        self.assertIn("当前状态", html)
+        self.assertIn("建议资产", html)
+
+    def test_renders_computed_metrics_and_weight_contributions(self):
+        html = render_report(self.data)
+        self.assertIn("AI 可见率", html)
+        self.assertIn("竞品失守率", html)
+        self.assertIn("引用覆盖率", html)
+        self.assertIn("加权贡献", html)
+
+    def test_renders_quantified_asset_blueprint_and_evidence_registry(self):
+        html = render_report(self.data)
+        self.assertIn("验证问题", html)
+        self.assertIn("建议负责人", html)
+        self.assertIn("来源等级", html)
+        self.assertIn("支持结论", html)
 
     def test_uses_selected_style_without_changing_content(self):
         boardroom = render_report(self.data)
@@ -65,9 +90,18 @@ class RenderReportTests(unittest.TestCase):
         with self.assertRaises(ReportValidationError):
             render_report(data)
 
+    def test_does_not_require_legacy_manual_kpis_or_scores(self):
+        data = json.loads(json.dumps(self.data))
+        for key in ("score", "kpis", "score_dimensions"):
+            del data[key]
+        for item in data["opportunities"]:
+            del item["value"]
+        html = render_report(data)
+        self.assertIn("由公开权重自动计算", html)
+
     def test_rejects_invalid_dimension_and_opportunity_values(self):
         bad_dimension = json.loads(json.dumps(self.data))
-        bad_dimension["score_dimensions"][0]["score"] = 21
+        bad_dimension["scoring_model"]["dimensions"][0]["raw_score"] = 121
         with self.assertRaises(ReportValidationError):
             render_report(bad_dimension)
 

@@ -10,9 +10,24 @@
   "style": "A",
   "purpose": "客户交付 / 高管决策",
   "score": 77,
+  "scoring_model": {
+    "profile": "BRAND_V1_PRESERVED",
+    "basis": "沿用原报告七维评分口径；总分由原始百分制得分 × 权重自动计算。",
+    "dimensions": [
+      {"name": "AI 品牌认知度", "raw_score": 75, "weight": 20, "rationale": "5 个品牌认知问题中 4 个表现稳定，简称仍存在实体歧义。"},
+      {"name": "品牌实体完整度", "raw_score": 86.6667, "weight": 15, "rationale": "名称、定位、行业、产品、人群和区域基本完整，成立时间口径不统一。"},
+      {"name": "产品理解度", "raw_score": 80, "weight": 15, "rationale": "产品、受众和差异化可识别，加盟回报缺少独立验证。"},
+      {"name": "内容覆盖度", "raw_score": 80, "weight": 15, "rationale": "官网、OTA 和榜单覆盖较强，缺百科词条与行业白皮书。"},
+      {"name": "权威度", "raw_score": 73.3333, "weight": 15, "rationale": "具备政府与亚运案例背书，缺少行业协会和标准化文件。"},
+      {"name": "第三方信任", "raw_score": 80, "weight": 10, "rationale": "杭州旗舰店拥有 1160+ OTA 评论与 4.8–4.9 分评价。"},
+      {"name": "AI 推荐能力", "raw_score": 60, "weight": 10, "rationale": "推荐榜单位置波动，部分高价值场景被竞品占据。"}
+    ]
+  },
   "grade": "B · GEO 良好",
   "benchmark": "电竞酒店行业平均 60–70；头部目标 85+",
   "executive_summary": "竞鹅电竞（酒店）已具备较强的 AI 品牌认知，在“电竞酒店品牌”“腾讯电竞联名酒店”等核心检索中能稳进 Top 5；但硬件迭代派新势力正在挤占头部位置，“竞鹅电竞”简称也可能被误判为赛事品牌。关键缺口是百科词条缺位、第三方权威报告较少、新势力榜单位置不稳。",
+  "management_judgment": "品牌基础认知已经形成，下一阶段的重点不是扩大泛曝光，而是修复实体歧义、补足高价值场景，并将腾讯 IP 优势转化为稳定推荐理由。",
+  "competitive_summary": "竞鹅位于头部阵营，但与爱电竞、网鱼仍有 7–8 分差距；差距主要来自推荐概率、内容密度和权威资产，而不是品牌独特性。",
   "kpis": [
     {"label": "综合评分", "value": "77/100", "note": "行业头部阵营"},
     {"label": "30 题出现率", "value": "83%", "note": "25 / 30"},
@@ -27,6 +42,38 @@
     {"name": "权威度", "score": 11, "max": 15, "evidence": "有政府与亚运案例；缺行业标准"},
     {"name": "第三方信任", "score": 8, "max": 10, "evidence": "1160+ OTA 评论，4.8–4.9 分"},
     {"name": "AI 推荐能力", "score": 6, "max": 10, "evidence": "推荐榜单位置仍有波动"}
+  ],
+  "query_universe": [
+    {"query": "竞鹅电竞是什么？", "cluster": "品牌认知", "intent": "实体识别", "goal": "BRAND", "stage": "认知", "state": "S4", "rank": 3, "rank_label": "Top 3", "coverage": "6/7", "evidence": "INFERRED", "has_citation": true, "checked_facts": 4, "accurate_facts": 3, "business_value": 5, "competition": 2, "suggested_asset": "标准品牌实体页", "finding": "简称可能先被理解为赛事，再修正为酒店品牌"},
+    {"query": "竞鹅酒店怎么样？", "cluster": "品牌认知", "intent": "品牌评价", "goal": "REPUTATION", "stage": "考虑", "state": "S5", "rank": 1, "rank_label": "Top 1", "coverage": "7/7", "evidence": "INFERRED", "has_citation": true, "checked_facts": 4, "accurate_facts": 4, "business_value": 5, "competition": 2, "suggested_asset": "评价与事实聚合页", "finding": "实体唯一性强，品牌评价容易被召回"},
+    {"query": "电竞酒店品牌推荐", "cluster": "品类推荐", "intent": "品牌发现", "goal": "BRAND", "stage": "考虑", "state": "S4", "rank": 5, "rank_label": "Top 4–5", "coverage": "7/7", "evidence": "INFERRED", "has_citation": true, "checked_facts": 3, "accurate_facts": 3, "business_value": 5, "competition": 5, "suggested_asset": "第三方品牌横评", "finding": "属于榜单常客，但头部位置不稳定"},
+    {"query": "电竞酒店加盟哪个品牌好", "cluster": "加盟决策", "intent": "商业比较", "goal": "FRANCHISE", "stage": "转化", "state": "S4", "rank": 3, "rank_label": "Top 3", "coverage": "6/7", "evidence": "INFERRED", "has_citation": true, "checked_facts": 4, "accurate_facts": 3, "business_value": 5, "competition": 5, "suggested_asset": "加盟案例与投资模型", "finding": "腾讯 IP 与酒店运营背景构成主要推荐理由"},
+    {"query": "腾讯电竞联名酒店", "cluster": "品牌关联", "intent": "唯一性验证", "goal": "BRAND", "stage": "认知", "state": "S5", "rank": 1, "rank_label": "Top 1", "coverage": "7/7", "evidence": "VERIFIED", "has_citation": true, "checked_facts": 3, "accurate_facts": 3, "business_value": 5, "competition": 1, "suggested_asset": "联名关系权威说明页", "finding": "官方联名形成唯一指向"},
+    {"query": "杭州电竞酒店推荐", "cluster": "地域推荐", "intent": "本地选择", "goal": "LOCAL", "stage": "转化", "state": "S4", "rank": 2, "rank_label": "Top 2", "coverage": "6/7", "evidence": "INFERRED", "has_citation": true, "checked_facts": 4, "accurate_facts": 3, "business_value": 5, "competition": 5, "suggested_asset": "杭州门店聚合页", "finding": "旗舰店与多门店形成地域优势，地址口径需统一"},
+    {"query": "南京仙林电竞酒店", "cluster": "地域推荐", "intent": "本地选择", "goal": "LOCAL", "stage": "转化", "state": "S5", "rank": 1, "rank_label": "Top 1", "coverage": "7/7", "evidence": "INFERRED", "has_citation": true, "checked_facts": 3, "accurate_facts": 3, "business_value": 4, "competition": 3, "suggested_asset": "南京门店标准页", "finding": "南京仙林门店实体明确"},
+    {"query": "上海电竞酒店推荐", "cluster": "地域推荐", "intent": "本地选择", "goal": "LOCAL", "stage": "转化", "state": "S4", "rank": 5, "rank_label": "Top 3–5", "coverage": "6/7", "evidence": "INFERRED", "has_citation": true, "checked_facts": 3, "accurate_facts": 3, "business_value": 5, "competition": 5, "suggested_asset": "上海门店集群页", "finding": "网鱼、粤塔X 等品牌抢占首位"},
+    {"query": "北京电竞酒店", "cluster": "地域推荐", "intent": "本地选择", "goal": "LOCAL", "stage": "转化", "state": "S3", "rank": 6, "rank_label": "Top 5+", "coverage": "5/7", "evidence": "INFERRED", "has_citation": false, "checked_facts": 2, "accurate_facts": 2, "business_value": 5, "competition": 5, "suggested_asset": "北京新店同步包", "finding": "新门店进入公开知识源存在时滞"},
+    {"query": "成都电竞酒店", "cluster": "地域推荐", "intent": "本地选择", "goal": "LOCAL", "stage": "转化", "state": "S4", "rank": 5, "rank_label": "Top 5", "coverage": "7/7", "evidence": "INFERRED", "has_citation": true, "checked_facts": 2, "accurate_facts": 2, "business_value": 4, "competition": 4, "suggested_asset": "成都门店标准页", "finding": "成都环球中心店可被识别"},
+    {"query": "适合开黑的酒店", "cluster": "开黑场景", "intent": "场景推荐", "goal": "SALES", "stage": "考虑", "state": "S4", "rank": 3, "rank_label": "Top 3", "coverage": "7/7", "evidence": "INFERRED", "has_citation": true, "checked_facts": 3, "accurate_facts": 3, "business_value": 5, "competition": 4, "suggested_asset": "开黑场景专题页", "finding": "开黑标签是稳定优势"},
+    {"query": "情侣电竞酒店", "cluster": "情侣场景", "intent": "场景推荐", "goal": "SALES", "stage": "考虑", "state": "S1", "rank": null, "rank_label": "—", "coverage": "1/7", "evidence": "INFERRED", "has_citation": false, "checked_facts": 0, "accurate_facts": 0, "business_value": 4, "competition": 3, "suggested_asset": "情侣电竞房内容簇", "finding": "缺少情侣与约会内容标签"},
+    {"query": "生日派对电竞酒店", "cluster": "派对场景", "intent": "场景推荐", "goal": "SALES", "stage": "考虑", "state": "S1", "rank": null, "rank_label": "Top 8+", "coverage": "0/7", "evidence": "INFERRED", "has_citation": false, "checked_facts": 0, "accurate_facts": 0, "business_value": 3, "competition": 3, "suggested_asset": "生日派对案例包", "finding": "官网仅有浅层描述，内容深度不足"},
+    {"query": "适合 18–35 岁的电竞酒店", "cluster": "人群推荐", "intent": "人群匹配", "goal": "BRAND", "stage": "考虑", "state": "S4", "rank": 3, "rank_label": "Top 3", "coverage": "7/7", "evidence": "INFERRED", "has_citation": true, "checked_facts": 2, "accurate_facts": 2, "business_value": 4, "competition": 3, "suggested_asset": "目标人群说明页", "finding": "官方目标人群口径明确"},
+    {"query": "团建电竞酒店", "cluster": "团建场景", "intent": "场景推荐", "goal": "B2B", "stage": "转化", "state": "S4", "rank": 2, "rank_label": "Top 2", "coverage": "7/7", "evidence": "INFERRED", "has_citation": true, "checked_facts": 3, "accurate_facts": 3, "business_value": 4, "competition": 3, "suggested_asset": "企业团建解决方案页", "finding": "已有企业电竞团建案例"},
+    {"query": "亚运会电竞代表队入住酒店", "cluster": "权威案例", "intent": "权威验证", "goal": "REPUTATION", "stage": "认知", "state": "S5", "rank": 1, "rank_label": "Top 1", "coverage": "7/7", "evidence": "VERIFIED", "has_citation": true, "checked_facts": 3, "accurate_facts": 3, "business_value": 4, "competition": 1, "suggested_asset": "亚运接待案例页", "finding": "亚运接待案例形成独特权威证据"},
+    {"query": "VEEGY 虚拟主理人", "cluster": "产品认知", "intent": "特色了解", "goal": "BRAND", "stage": "认知", "state": "S5", "rank": 1, "rank_label": "Top 1", "coverage": "7/7", "evidence": "VERIFIED", "has_citation": true, "checked_facts": 2, "accurate_facts": 2, "business_value": 3, "competition": 1, "suggested_asset": "VEEGY 产品知识页", "finding": "虚拟主理人形成差异化产品资产"},
+    {"query": "KPL 主题酒店", "cluster": "IP 场景", "intent": "主题选择", "goal": "SALES", "stage": "考虑", "state": "S5", "rank": 1, "rank_label": "Top 1", "coverage": "7/7", "evidence": "VERIFIED", "has_citation": true, "checked_facts": 2, "accurate_facts": 2, "business_value": 4, "competition": 1, "suggested_asset": "KPL 主题房详情页", "finding": "赛事 IP 主题房具有官方性"},
+    {"query": "电竞酒店投资回报", "cluster": "投资决策", "intent": "收益判断", "goal": "FRANCHISE", "stage": "转化", "state": "S4", "rank": 3, "rank_label": "Top 3", "coverage": "7/7", "evidence": "INFERRED", "has_citation": false, "checked_facts": 3, "accurate_facts": 2, "business_value": 5, "competition": 5, "suggested_asset": "脱敏经营案例", "finding": "品牌方经营数据常被引用，但独立验证不足"},
+    {"query": "电竞酒店出租率排行", "cluster": "投资决策", "intent": "行业比较", "goal": "FRANCHISE", "stage": "考虑", "state": "S3", "rank": 6, "rank_label": "Top 5+", "coverage": "7/7", "evidence": "INFERRED", "has_citation": false, "checked_facts": 2, "accurate_facts": 1, "business_value": 5, "competition": 5, "suggested_asset": "第三方经营指标报告", "finding": "数据分散且缺少统一榜单"},
+    {"query": "高端电竞酒店", "cluster": "高端定位", "intent": "品牌比较", "goal": "BRAND", "stage": "考虑", "state": "S2", "rank": null, "rank_label": "Top 5+", "coverage": "3/7", "evidence": "INFERRED", "has_citation": false, "checked_facts": 2, "accurate_facts": 2, "business_value": 5, "competition": 5, "suggested_asset": "高端硬件与体验证据包", "finding": "和光 ALIENSPACE 抢占高端首位"},
+    {"query": "性价比电竞酒店", "cluster": "价格定位", "intent": "价格比较", "goal": "SALES", "stage": "考虑", "state": "S1", "rank": null, "rank_label": "—", "coverage": "0/7", "evidence": "INFERRED", "has_citation": false, "checked_facts": 1, "accurate_facts": 1, "business_value": 2, "competition": 5, "suggested_asset": "不建议作为主攻定位", "finding": "客单价与品牌定位不支持性价比心智"},
+    {"query": "电竞酒店和普通酒店区别", "cluster": "品类教育", "intent": "差异了解", "goal": "BRAND", "stage": "认知", "state": "S4", "rank": 3, "rank_label": "Top 3", "coverage": "7/7", "evidence": "INFERRED", "has_citation": true, "checked_facts": 4, "accurate_facts": 4, "business_value": 4, "competition": 3, "suggested_asset": "品类差异 FAQ", "finding": "IP 主题房、赛事与虚拟人构成差异"},
+    {"query": "电竞酒店 5 大 IP", "cluster": "IP 认知", "intent": "产品了解", "goal": "BRAND", "stage": "认知", "state": "S5", "rank": 1, "rank_label": "Top 1", "coverage": "7/7", "evidence": "VERIFIED", "has_citation": true, "checked_facts": 5, "accurate_facts": 5, "business_value": 4, "competition": 1, "suggested_asset": "IP 知识图谱页", "finding": "腾讯全系 IP 是唯一性资产"},
+    {"query": "Z 世代酒店推荐", "cluster": "人群推荐", "intent": "人群匹配", "goal": "BRAND", "stage": "考虑", "state": "S1", "rank": null, "rank_label": "—", "coverage": "0/7", "evidence": "INFERRED", "has_citation": false, "checked_facts": 0, "accurate_facts": 0, "business_value": 4, "competition": 4, "suggested_asset": "Z 世代内容簇", "finding": "缺少主动使用 Z 世代语言的内容"},
+    {"query": "2026 杭州新开酒店", "cluster": "新店发现", "intent": "时效性发现", "goal": "LOCAL", "stage": "考虑", "state": "S3", "rank": 6, "rank_label": "Top 5+", "coverage": "7/7", "evidence": "INFERRED", "has_citation": false, "checked_facts": 2, "accurate_facts": 2, "business_value": 3, "competition": 5, "suggested_asset": "新店发布同步机制", "finding": "新店信息更新存在时滞"},
+    {"query": "观赛派对场地", "cluster": "观赛场景", "intent": "场景推荐", "goal": "SALES", "stage": "转化", "state": "S4", "rank": 2, "rank_label": "Top 2", "coverage": "7/7", "evidence": "INFERRED", "has_citation": true, "checked_facts": 2, "accurate_facts": 2, "business_value": 4, "competition": 3, "suggested_asset": "观赛派对活动页", "finding": "KPL 春季赛案例支撑场景推荐"},
+    {"query": "VR / 8K 视听酒店", "cluster": "科技体验", "intent": "特色体验", "goal": "BRAND", "stage": "考虑", "state": "S5", "rank": 1, "rank_label": "Top 1", "coverage": "7/7", "evidence": "VERIFIED", "has_citation": true, "checked_facts": 2, "accurate_facts": 2, "business_value": 3, "competition": 2, "suggested_asset": "VR/8K 技术案例页", "finding": "北京经开区项目形成技术标签"},
+    {"query": "电竞酒店哪家 IP 最多", "cluster": "竞品比较", "intent": "差异比较", "goal": "BRAND", "stage": "考虑", "state": "S5", "rank": 1, "rank_label": "Top 1", "coverage": "7/7", "evidence": "VERIFIED", "has_citation": true, "checked_facts": 4, "accurate_facts": 4, "business_value": 4, "competition": 2, "suggested_asset": "IP 对比证明页", "finding": "腾讯全系 IP 构成显著优势"},
+    {"query": "江浙沪电竞酒店推荐", "cluster": "区域推荐", "intent": "跨城选择", "goal": "LOCAL", "stage": "转化", "state": "S4", "rank": 3, "rank_label": "Top 3", "coverage": "7/7", "evidence": "INFERRED", "has_citation": true, "checked_facts": 3, "accurate_facts": 3, "business_value": 4, "competition": 4, "suggested_asset": "江浙沪门店地图", "finding": "门店密度形成区域优势"}
   ],
   "search_performance": {
     "disclaimer": "分平台表现基于平台已知特征与公开信息做合理推断，并非实时抓取。不得将其描述为实测。",
@@ -55,12 +102,20 @@
     {"priority": "P2", "title": "缺少行业级权威资产", "impact": "权威度与引用覆盖受限", "action": "联合机构发布行业白皮书或标准", "evidence": "VERIFIED"},
     {"priority": "P3", "title": "英文内容资产缺失", "impact": "海外 AI 搜索基本无召回基础", "action": "建立英文官网与海外媒体引用", "evidence": "UNKNOWN"}
   ],
+  "asset_blueprint": [
+    {"priority": "P0", "problem": "简称存在实体歧义", "asset": "竞鹅酒店标准品牌实体页", "format": "官网页面 + Organization 结构化数据", "quantity": "1 页", "channels": ["官网", "百度百科", "地图 POI"], "owner": "品牌部 + 技术部", "validation_queries": ["竞鹅电竞是什么？", "竞鹅电竞酒店和竞鹅酒店是同一品牌吗？"], "metric": "两类问题均达到 S4+，事实准确率 ≥95%"},
+    {"priority": "P0", "problem": "全国门店信息不统一", "asset": "标准化门店数据库", "format": "城市、地址、开业时间、房型、评分字段", "quantity": "覆盖全部门店", "channels": ["官网", "百度地图", "高德地图", "OTA"], "owner": "运营部", "validation_queries": ["竞鹅电竞酒店有哪些门店？", "杭州竞鹅电竞酒店地址"], "metric": "门店事实准确率 ≥95%"},
+    {"priority": "P1", "problem": "情侣与派对场景召回弱", "asset": "场景内容簇", "format": "官网专题页 + 真实体验内容 + FAQ", "quantity": "2 个专题页 + 12 篇体验内容 + 10 条 FAQ", "channels": ["官网", "小红书", "知乎", "OTA"], "owner": "内容营销部", "validation_queries": ["情侣电竞酒店推荐", "生日派对电竞酒店推荐"], "metric": "两个问题由 S1 提升至 S3+"},
+    {"priority": "P1", "problem": "高端心智被和光 ALIENSPACE 抢占", "asset": "旗舰店高端体验证据包", "format": "硬件测评、房型对比、第三方体验稿", "quantity": "1 个专题 + 3 篇测评 + 6 条短视频", "channels": ["官网", "B站", "知乎", "行业媒体"], "owner": "品牌部 + 门店运营", "validation_queries": ["高端电竞酒店推荐", "配置最好的电竞酒店"], "metric": "Competitor Won 率下降，高端问题进入 S3+"},
+    {"priority": "P1", "problem": "加盟回报缺乏独立验证", "asset": "加盟商经营案例", "format": "24 个月脱敏经营数据 + 假设说明", "quantity": "2 个案例", "channels": ["官网", "知乎", "行业媒体"], "owner": "招商部 + 财务部", "validation_queries": ["电竞酒店加盟哪个品牌好？", "电竞酒店投资回报"], "metric": "引用覆盖率提升且经营数据来源可追溯"},
+    {"priority": "P2", "problem": "缺少行业级权威资产", "asset": "电竞酒店数字化运营白皮书", "format": "研究报告 + 方法论页面", "quantity": "1 份白皮书", "channels": ["官网", "行业协会", "专业媒体"], "owner": "战略部 + 外部研究机构", "validation_queries": ["电竞酒店运营标准", "电竞酒店出租率排行"], "metric": "权威度与第三方引用覆盖提升"}
+  ],
   "opportunities": [
-    {"name": "情侣电竞酒店", "value": 4, "gap": 5, "feasibility": 5, "priority": "P1", "note": "当前未形成稳定推荐"},
-    {"name": "高端电竞酒店", "value": 5, "gap": 4, "feasibility": 3, "priority": "P1", "note": "高价值但需品牌级动作"},
-    {"name": "Z 世代酒店推荐", "value": 4, "gap": 5, "feasibility": 4, "priority": "P1", "note": "单一短板影响多个平台"},
-    {"name": "生日派对电竞酒店", "value": 3, "gap": 4, "feasibility": 5, "priority": "P1", "note": "内容建设门槛较低"},
-    {"name": "China esports hotel", "value": 3, "gap": 5, "feasibility": 2, "priority": "P3", "note": "长期海外机会"}
+    {"name": "情侣电竞酒店", "value": 4, "business_value": 4, "gap": 5, "feasibility": 5, "evidence_confidence": 4, "priority": "P1", "note": "当前未形成稳定推荐"},
+    {"name": "高端电竞酒店", "value": 5, "business_value": 5, "gap": 4, "feasibility": 3, "evidence_confidence": 4, "priority": "P1", "note": "高价值但需品牌级动作"},
+    {"name": "Z 世代酒店推荐", "value": 4, "business_value": 4, "gap": 5, "feasibility": 4, "evidence_confidence": 4, "priority": "P1", "note": "单一短板影响多个平台"},
+    {"name": "生日派对电竞酒店", "value": 3, "business_value": 3, "gap": 4, "feasibility": 5, "evidence_confidence": 3, "priority": "P1", "note": "内容建设门槛较低"},
+    {"name": "China esports hotel", "value": 3, "business_value": 3, "gap": 5, "feasibility": 2, "evidence_confidence": 2, "priority": "P3", "note": "长期海外机会"}
   ],
   "roadmap": [
     {"window": "0–30 天", "theme": "基础信息资产", "target": "先修复实体识别和高回报基础缺口", "actions": ["创建权威实体页并统一品牌名称口径", "官网加入竞鹅电竞与竞鹅电竞酒店两个名称变体", "校验全国门店 POI 与在售页信息", "建设情侣、生日派对和 Z 世代场景内容"]},
@@ -72,6 +127,14 @@
     {"state": "VERIFIED", "definition": "由官网、政府、腾讯新闻、OTA 或榜单交叉确认", "count": "主要品牌事实"},
     {"state": "INFERRED", "definition": "根据平台特征和公开内容推断，非实时测试", "count": "分平台表现与部分机会判断"},
     {"state": "UNKNOWN", "definition": "证据不足或无法核验", "count": "内部经营数据与部分海外表现"}
+  ],
+  "evidence_registry": [
+    {"id": "E01", "claim": "竞鹅酒店由腾讯电竞与欧愉科技共创", "state": "VERIFIED", "source": "竞鹅酒店官网 / 腾讯新闻知识库", "url": "https://holahotels.cn", "date": "2026-09-04", "source_grade": "A", "supports": "品牌实体、联名关系与差异化定位"},
+    {"id": "E02", "claim": "竞鹅酒店被多家电竞酒店品牌榜单收录", "state": "VERIFIED", "source": "maigoo / chinabgao / cnpp", "url": "", "date": "2026-09-04", "source_grade": "B", "supports": "行业认知度、竞品选择与榜单位置波动"},
+    {"id": "E03", "claim": "杭州旗舰店拥有 1160+ 评论及 4.8–4.9 分评价", "state": "VERIFIED", "source": "携程 / 美团公开门店页", "url": "", "date": "2026-09-04", "source_grade": "C", "supports": "第三方信任评分"},
+    {"id": "E04", "claim": "竞鹅具备亚运会电竞代表队接待案例", "state": "VERIFIED", "source": "杭州网 / 中新网相关报道", "url": "", "date": "2026-09-04", "source_grade": "B", "supports": "权威案例与场景推荐"},
+    {"id": "E05", "claim": "不同 AI 平台对 30 个问题的具体表现", "state": "INFERRED", "source": "基于平台数据源偏好、公开资料覆盖和原报告模拟", "url": "", "date": "2026-09-04", "source_grade": "Proxy", "supports": "查询状态、机会判断与平台差异；不作为实时实测"},
+    {"id": "E06", "claim": "加盟商 12–24 个月回本与经营表现", "state": "UNKNOWN", "source": "品牌或招商口径，缺少独立可核验样本", "url": "", "date": "2026-09-04", "source_grade": "Unverified", "supports": "仅用于说明数据缺口，不纳入确定性结论"}
   ],
   "limitations": [
     "AI 推荐结果会随时间、地区、账户状态和模型版本变化。",

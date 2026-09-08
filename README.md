@@ -8,11 +8,20 @@
 
 - 自动识别 `BRAND`、`B2B`、`LOCAL`、`RESTAURANT`、`PRODUCT`、`PERSON` 等实体类型。
 - 推断品牌认知、获客、到店、销售、加盟、B2B 和口碑等商业目标。
-- 建立品牌认知、品类推荐、地域、人群、场景、比较和商业决策问题集。
+- 建立 20–50 条可复测的 GEO 搜索问题库，逐条展示问题簇、用户意图、决策阶段、问题权重、竞争强度与当前状态。
 - 区分 `Not Found`、`Competitor Won`、`Mentioned`、`Recommended` 和 `Preferred`。
-- 输出 GEO 评分、竞品对比、P0–P3 问题优先级、机会地图及 30/60/90 天路线图。
-- 将每个问题映射为实体页、FAQ、案例、白皮书、场景内容和第三方信任资产。
+- 按 `BRAND`、`LOCAL`、`B2B`、`PRODUCT`、`PERSON` 等模型选择权重，并公开原始分、权重、加权贡献和评分依据。
+- 从逐条问题结果自动计算 AI 可见率、推荐率、Top 3 率、竞品失守率、引用覆盖率和事实准确率。
+- 输出竞品对比、P0–P3 问题优先级、机会地图及 30/60/90 天路线图。
+- 将每个问题映射为可量化的实体页、FAQ、案例、白皮书、场景内容和第三方信任资产，包含数量、渠道、负责人、验证问题和成功指标。
+- 提供逐条证据目录，区分事实、推断和未知项。
 - 支持四种专业报告视觉风格，生成响应式、可打印、无外部依赖的 HTML。
+
+## GEO 搜索问题与权重
+
+Skill 不只输出“电竞酒店、酒店加盟”这类传统关键词，而是输出 AI 用户真正会问的完整问题，例如“杭州电竞酒店推荐”“电竞酒店加盟哪个品牌好”“X 和竞品有什么区别”。完整诊断默认覆盖 20–50 条，快速扫描才缩减到 8–12 条。
+
+每个问题都会标注问题簇、搜索意图、商业目标、决策阶段、当前状态、问题权重、商业价值、竞争强度、证据状态和建议补充的内容资产。若客户提供了销售漏斗或市场优先级，可显式设置权重；否则引擎按商业价值归一化，并在报告中公开口径。
 
 ## 报告风格
 
@@ -72,13 +81,20 @@ python3 scripts/render_report.py examples/jinge-esports.json report.html
 
 输入数据结构见 [`references/data-contract.md`](references/data-contract.md)，完整示例见 [`examples/jinge-esports.json`](examples/jinge-esports.json)。
 
+渲染过程中会自动运行确定性诊断引擎：
+
+- 评分维度权重必须合计 100；综合分由引擎重新计算。
+- 可以为每个搜索问题显式设置权重且总计 100；未设置时按商业价值归一化，商业价值也缺失时使用等权重。
+- `UNKNOWN` 问题保留在报告中，但不进入指标分母。
+- 机会分按商业价值 35% + 当前缺口 30% + 可实现性 20% + 证据置信度 15% 计算。
+
 ## 测试
 
 ```bash
 python3 -m unittest discover -s tests -v
 ```
 
-测试覆盖必需报告章节、视觉风格切换、HTML 转义、移动端与打印样式、缺失字段、评分边界、机会坐标和证据状态验证。
+测试覆盖问题权重、实体类型权重方案、逐条指标计算、必需报告章节、视觉风格切换、HTML 转义、移动端与打印样式、缺失字段、评分边界、机会分和证据状态验证。
 
 ## 目录结构
 
@@ -96,10 +112,14 @@ geo-diagnosis/
 │   ├── data-contract.md
 │   ├── diagnostic-method.md
 │   ├── evidence-policy.md
-│   └── report-styles.md
+│   ├── query-universe.md
+│   ├── report-styles.md
+│   └── weight-profiles.md
 ├── scripts/
+│   ├── diagnosis_engine.py
 │   └── render_report.py
 └── tests/
+    ├── test_diagnosis_engine.py
     └── test_render_report.py
 ```
 
@@ -109,4 +129,3 @@ geo-diagnosis/
 - 评分必须说明数据范围与权重，缺失数据不得参与计算。
 - 路线图目标是待复测的增长假设，不是排名或商业结果承诺。
 - Skill 不会自动获得需要登录、付费或人工授权的平台数据。
-
