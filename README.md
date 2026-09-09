@@ -79,7 +79,11 @@ $geo-diagnosis 诊断杭州某餐厅，目标是提升“西湖附近聚餐餐�
 python3 scripts/render_report.py examples/jinge-esports.json report.html
 ```
 
-输入数据结构见 [`references/data-contract.md`](references/data-contract.md)，完整示例见 [`examples/jinge-esports.json`](examples/jinge-esports.json)。
+输入数据结构见 [`references/data-contract.md`](references/data-contract.md)。仓库包含两组可复现示例：
+
+- [`examples/jinge-esports.json`](examples/jinge-esports.json)：竞鹅电竞酒店诊断数据。
+- [`examples/tanniao-suzhou.json`](examples/tanniao-suzhou.json)：苏州探鸟烧鸟 30 问完整诊断数据。
+- [`reports/苏州探鸟烧鸟_GEO诊断报告_A版.html`](reports/苏州探鸟烧鸟_GEO诊断报告_A版.html)：董事会咨询风成品 HTML，可直接下载后离线打开。
 
 渲染过程中会自动运行确定性诊断引擎：
 
@@ -107,7 +111,10 @@ geo-diagnosis/
 ├── assets/
 │   └── report.css
 ├── examples/
-│   └── jinge-esports.json
+│   ├── jinge-esports.json
+│   └── tanniao-suzhou.json
+├── reports/
+│   └── 苏州探鸟烧鸟_GEO诊断报告_A版.html
 ├── references/
 │   ├── data-contract.md
 │   ├── diagnostic-method.md

@@ -8,6 +8,7 @@ import html
 import json
 from pathlib import Path
 from typing import Any, Iterable
+from urllib.parse import urlparse
 
 from diagnosis_engine import DiagnosisValidationError, enrich_report
 
@@ -98,6 +99,14 @@ def evidence_badge(state: str) -> str:
     return f'<span class="evidence-badge {esc(normalized.lower())}">{esc(normalized)}</span>'
 
 
+def source_link(url: Any) -> str:
+    value = str(url or "").strip()
+    parsed = urlparse(value)
+    if parsed.scheme not in {"http", "https"} or not parsed.netloc:
+        return ""
+    return f'<br><a class="source-link" href="{esc(value)}" target="_blank" rel="noopener noreferrer">打开来源 ↗</a>'
+
+
 def section_head(number: str, title: str) -> str:
     return f'<header class="section-head"><div class="section-no">Section {esc(number)}</div><h2>{esc(title)}</h2></header>'
 
@@ -173,7 +182,7 @@ def render_report(data: dict[str, Any]) -> str:
         for row in data["issues"]
     )
     opportunities = join_items(
-        f'<div class="opportunity" style="left:{10 + (row["business_value"] - 1) * 20}%;bottom:{10 + (row["feasibility"] - 1) * 20}%">{esc(row["name"])}<em>{esc(row["priority"])} · 机会分 {esc(row["opportunity_score"])} · 缺口 {esc(row["gap"])}/5</em></div>'
+        f'<div class="opportunity" style="left:{10 + (row["business_value"] - 1) * 20}%;bottom:{10 + (row["feasibility"] - 1) * 20}%">{esc(row["name"])}<em>{esc(row["priority"])} · 机会分 {esc(row["opportunity_score"])} · 缺口 {esc(row["gap"])}/5 · 商业价值 {esc(row["business_value"])}/5 · 可实现性 {esc(row["feasibility"])}/5</em></div>'
         for row in data["opportunities"]
     )
     asset_rows = join_items(
@@ -194,7 +203,7 @@ def render_report(data: dict[str, Any]) -> str:
     )
     evidence_registry_rows = join_items(
         "<tr>"
-        f'<td>{esc(row["id"])}</td><td>{esc(row["claim"])}</td><td>{evidence_badge(row["state"])}</td><td>{esc(row["source"])}</td>'
+        f'<td>{esc(row["id"])}</td><td>{esc(row["claim"])}</td><td>{evidence_badge(row["state"])}</td><td>{esc(row["source"])}{source_link(row.get("url"))}</td>'
         f'<td>{esc(row["source_grade"])}</td><td>{esc(row["date"])}</td><td>{esc(row["supports"])}</td>'
         "</tr>"
         for row in data["evidence_registry"]
@@ -238,7 +247,7 @@ def render_report(data: dict[str, Any]) -> str:
 
     <section class="section">{section_head("02", "核心指标")}<div class="kpis">{kpis}</div></section>
 
-    <section class="section">{section_head("03", "GEO 能力评分")}<div class="score-hero"><div class="score-ring"><svg viewBox="0 0 200 200" aria-label="GEO score {esc(data["score"])}"><circle class="track" cx="100" cy="100" r="88"/><circle class="value" cx="100" cy="100" r="88" stroke-dasharray="{dash:.2f} {circumference:.2f}"/></svg><div class="score-copy"><strong>{esc(data["score"])}</strong><span>out of 100</span></div></div><div class="score-context"><h3>{esc(data["grade"])}</h3><p>{esc(data.get("benchmark", ""))}</p><p>{esc(data["scoring_model"].get("basis", "总分由维度原始分与公开权重自动计算。"))}</p></div></div><h3 class="subsection-title">权重与得分解释</h3><div class="table-wrap"><table><thead><tr><th>评分维度</th><th>原始得分</th><th>权重</th><th>加权贡献</th><th>评分依据</th></tr></thead><tbody>{score_rows}</tbody></table></div></section>
+    <section class="section score-section">{section_head("03", "GEO 能力评分")}<div class="score-hero"><div class="score-ring"><svg viewBox="0 0 200 200" aria-label="GEO score {esc(data["score"])}"><circle class="track" cx="100" cy="100" r="88"/><circle class="value" cx="100" cy="100" r="88" stroke-dasharray="{dash:.2f} {circumference:.2f}"/></svg><div class="score-copy"><strong>{esc(data["score"])}</strong><span>out of 100</span></div></div><div class="score-context"><h3>{esc(data["grade"])}</h3><p>{esc(data.get("benchmark", ""))}</p><p>{esc(data["scoring_model"].get("basis", "总分由维度原始分与公开权重自动计算。"))}</p></div></div><h3 class="subsection-title">权重与得分解释</h3><div class="table-wrap"><table><thead><tr><th>评分维度</th><th>原始得分</th><th>权重</th><th>加权贡献</th><th>评分依据</th></tr></thead><tbody>{score_rows}</tbody></table></div></section>
 
     <section class="section">{section_head("04", "GEO 搜索问题版图")}<p class="lede">当前诊断覆盖 <strong>{esc(metrics["total_queries"])} 个用户问题</strong>，按问题簇、搜索意图、商业目标和用户决策阶段管理，而不是只罗列孤立关键词。</p><div class="method-note"><strong>Reading guide</strong><div>问题权重决定各问题对 AI 可见率等指标的贡献；本次采用“{esc(weighting_label)}”口径。商业价值与竞争强度均为 1–5 分，状态使用 S0–S5，建议资产直接对应问题缺口。</div></div><div class="table-wrap query-table"><table><thead><tr><th>当前 GEO 搜索问题</th><th>问题簇</th><th>搜索意图</th><th>商业目标</th><th>用户决策阶段</th><th>当前状态</th><th>排名</th><th>问题权重</th><th>商业价值</th><th>竞争强度</th><th>证据</th><th>建议资产</th></tr></thead><tbody>{query_rows}</tbody></table></div></section>
 

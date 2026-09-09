@@ -1,0 +1,141 @@
+{
+  "report_title": "探鸟烧鸟 GEO 智能诊断报告",
+  "entity": "探鳥·鲜货烧鸟自助",
+  "entity_aliases": ["探鸟烧鸟", "探鳥", "探鸟鲜活烧鸟", "探鸟鲜货烧鸟"],
+  "entity_type": "RESTAURANT（主）+ LOCAL + BRAND（辅）",
+  "industry": "日式烧鸟 / 自助餐 / 连锁餐饮",
+  "scope": "苏州公开网络信息；星悦汇店及大悦城关联主体",
+  "date": "2026-09-08",
+  "version": "V1.0",
+  "style": "A",
+  "style_status": "SELECTED_BY_USER",
+  "purpose": "品牌增长 / 到店转化 / 连锁实体治理",
+  "scoring_model": {
+    "profile": "LOCAL_V1",
+    "basis": "以餐厅到店决策为主，采用 LOCAL / RESTAURANT 权重；AI 可见与推荐维度使用公开搜索表征代理，未进行登录态 AI 平台实测。",
+    "dimensions": [
+      {"name": "实体清晰度", "raw_score": 40, "weight": 10, "rationale": "公司主体与品牌存在公开关联，但简繁体、鲜货/鲜活及门店关系不统一。"},
+      {"name": "知识完整度", "raw_score": 35, "weight": 10, "rationale": "可找到公司和单店线索，但完整门店、菜单、价格、营业时间、预约规则缺失。"},
+      {"name": "权威与证明", "raw_score": 18, "weight": 5, "rationale": "未发现官网、权威品牌档案或系统化食品安全与供应链证明。"},
+      {"name": "第三方信任", "raw_score": 62, "weight": 20, "rationale": "点评聚合显示星悦汇店约 1.4K 条评价、4.0 分，并有短视频探店内容，但证据集中在平台内。"},
+      {"name": "AI 可见度", "raw_score": 21.9, "weight": 15, "rationale": "30 个问题中，仅品牌精确词和单店精确词具备较明确的公开搜索表征。"},
+      {"name": "AI 推荐力", "raw_score": 7.3, "weight": 20, "rationale": "只有两个精确问题推断可能进入推荐集；通用品类与场景问题被竞品占据。"},
+      {"name": "竞争占位", "raw_score": 22, "weight": 10, "rationale": "鸟剑、鸟王等品牌拥有官网、门店页和更密集的评价与推荐内容。"},
+      {"name": "跨平台一致性", "raw_score": 30, "weight": 10, "rationale": "公司地址、星悦汇单店及品牌写法之间缺少统一的可引用关系页。"}
+    ]
+  },
+  "grade": "D · GEO 起步期",
+  "benchmark": "本报告是公开证据基线；因未取得同口径 AI 平台实测，不与行业平均分作确定性比较。",
+  "executive_summary": "探鸟已经出现真实消费口碑基础：公开地图聚合可见“探鳥·鲜货烧鸟自助（星悦汇店）”约 1.4K 条点评、4.0 分，并存在短视频探店内容；但这些信号尚未沉淀为可被生成式搜索稳定理解的品牌知识。当前最大约束不是缺少消费者讨论，而是官方实体、门店清单、菜单价格、营业时间和品牌差异化均缺少统一来源，导致通用的“苏州烧鸟推荐”“苏州烧鸟自助推荐”等高价值问题更容易被鸟剑、鸟王等竞品占据。",
+  "management_judgment": "先完成品牌与门店事实治理，再扩大探店投放。若继续只在封闭平台积累点评而没有官方可引用页面，新增口碑很难转化为跨平台 AI 推荐理由。",
+  "competitive_summary": "探鸟拥有一定单店评价规模，但竞品已经形成“官网/门店页—点评—攻略—场景内容”的完整证据链。探鸟的主要差距是可引用知识资产与跨平台一致性，而不是单纯缺少曝光。",
+  "query_universe": [
+    {"query": "探鸟烧鸟是什么？", "cluster": "品牌认知", "intent": "实体识别", "goal": "BRAND", "stage": "认知", "state": "S3", "rank": null, "rank_label": "未实测", "coverage": "公司与单店线索", "evidence": "INFERRED", "has_citation": false, "checked_facts": 3, "accurate_facts": 2, "business_value": 5, "competition": 2, "suggested_asset": "标准品牌实体页", "finding": "品牌、公司和门店关系可被部分识别，但定义不完整"},
+    {"query": "探鸟烧鸟怎么样？", "cluster": "品牌口碑", "intent": "评价判断", "goal": "REPUTATION", "stage": "考虑", "state": "S3", "rank": null, "rank_label": "未实测", "coverage": "点评聚合可见", "evidence": "INFERRED", "has_citation": false, "checked_facts": 2, "accurate_facts": 2, "business_value": 5, "competition": 3, "suggested_asset": "评价证据聚合页", "finding": "可找到评价信号，但品牌级总结与回应缺失"},
+    {"query": "探鳥·鲜货烧鸟自助是什么？", "cluster": "品牌认知", "intent": "精确实体识别", "goal": "BRAND", "stage": "认知", "state": "S4", "rank": null, "rank_label": "未实测", "coverage": "精确单店名称", "evidence": "INFERRED", "has_citation": false, "checked_facts": 2, "accurate_facts": 2, "business_value": 5, "competition": 1, "suggested_asset": "规范名称与别名页", "finding": "精确全称具备较强唯一性，但不是消费者最常用写法"},
+    {"query": "探鸟烧鸟有哪些门店？", "cluster": "门店查询", "intent": "门店发现", "goal": "LOCAL", "stage": "转化", "state": "S1", "rank": null, "rank_label": "未找到完整清单", "coverage": "零散门店线索", "evidence": "INFERRED", "has_citation": false, "checked_facts": 0, "accurate_facts": 0, "business_value": 5, "competition": 2, "suggested_asset": "全量门店数据库", "finding": "公开网络缺少官方门店总表和在营状态"},
+    {"query": "探鸟烧鸟菜单和价格？", "cluster": "菜单价格", "intent": "消费预算", "goal": "SALES", "stage": "转化", "state": "S1", "rank": null, "rank_label": "未找到官方口径", "coverage": "探店内容片段", "evidence": "INFERRED", "has_citation": false, "checked_facts": 0, "accurate_facts": 0, "business_value": 5, "competition": 4, "suggested_asset": "结构化菜单价格页", "finding": "菜品与套餐价格缺少可索引的官方页面"},
+    {"query": "探鸟烧鸟营业时间？", "cluster": "营业信息", "intent": "到店确认", "goal": "LOCAL", "stage": "转化", "state": "S1", "rank": null, "rank_label": "未找到统一口径", "coverage": "平台内信息待核", "evidence": "INFERRED", "has_citation": false, "checked_facts": 0, "accurate_facts": 0, "business_value": 5, "competition": 3, "suggested_asset": "门店营业信息字段", "finding": "不同门店营业时间和最后点单时间未形成公开事实"},
+    {"query": "探鸟烧鸟怎么预约？", "cluster": "预约转化", "intent": "预订", "goal": "SALES", "stage": "转化", "state": "S1", "rank": null, "rank_label": "未找到", "coverage": "缺官方入口", "evidence": "INFERRED", "has_citation": false, "checked_facts": 0, "accurate_facts": 0, "business_value": 4, "competition": 3, "suggested_asset": "预约 FAQ 与入口", "finding": "预约方式、排队规则与包间政策没有统一说明"},
+    {"query": "探鳥烧鸟星悦汇店怎么样？", "cluster": "单店口碑", "intent": "门店评价", "goal": "REPUTATION", "stage": "考虑", "state": "S4", "rank": null, "rank_label": "未实测", "coverage": "4.0 分 / 约 1.4K 点评", "evidence": "INFERRED", "has_citation": false, "checked_facts": 2, "accurate_facts": 2, "business_value": 5, "competition": 3, "suggested_asset": "星悦汇门店标准页", "finding": "第三方点评基础存在，是当前最强单店知识锚点"},
+    {"query": "探鸟烧鸟苏州大悦城店？", "cluster": "单店识别", "intent": "门店确认", "goal": "LOCAL", "stage": "转化", "state": "S3", "rank": null, "rank_label": "关联待确认", "coverage": "公司地址指向 L4-20", "evidence": "INFERRED", "has_citation": false, "checked_facts": 2, "accurate_facts": 1, "business_value": 5, "competition": 3, "suggested_asset": "大悦城门店关系页", "finding": "公司注册地址可见，但是否等同消费者门店仍需官方确认"},
+    {"query": "苏州烧鸟推荐", "cluster": "品类推荐", "intent": "餐厅选择", "goal": "LOCAL", "stage": "考虑", "state": "S2", "rank": null, "rank_label": "竞品占位", "coverage": "鸟王、鸟剑等", "evidence": "INFERRED", "has_citation": false, "checked_facts": 0, "accurate_facts": 0, "business_value": 5, "competition": 5, "suggested_asset": "苏州烧鸟品牌对比页", "finding": "公开搜索优先返回鸟王、鸟剑等成熟竞品"},
+    {"query": "苏州烧鸟自助推荐", "cluster": "品类推荐", "intent": "自助餐选择", "goal": "LOCAL", "stage": "考虑", "state": "S2", "rank": null, "rank_label": "竞品或泛自助占位", "coverage": "品牌未稳定出现", "evidence": "INFERRED", "has_citation": false, "checked_facts": 0, "accurate_facts": 0, "business_value": 5, "competition": 5, "suggested_asset": "烧鸟自助品类页", "finding": "探鸟核心品类词与品牌实体尚未建立稳定关联"},
+    {"query": "苏州中心烧鸟推荐", "cluster": "商圈推荐", "intent": "附近就餐", "goal": "LOCAL", "stage": "转化", "state": "S2", "rank": null, "rank_label": "鸟王占位", "coverage": "强竞品门店页", "evidence": "INFERRED", "has_citation": false, "checked_facts": 0, "accurate_facts": 0, "business_value": 5, "competition": 5, "suggested_asset": "苏州中心商圈页", "finding": "鸟王在同商圈拥有高密度点评和多平台门店页"},
+    {"query": "苏州大悦城烧鸟推荐", "cluster": "商圈推荐", "intent": "附近就餐", "goal": "LOCAL", "stage": "转化", "state": "S2", "rank": null, "rank_label": "其他餐饮占位", "coverage": "探鸟门店关系不清", "evidence": "INFERRED", "has_citation": false, "checked_facts": 0, "accurate_facts": 0, "business_value": 5, "competition": 4, "suggested_asset": "大悦城门店场景页", "finding": "缺少可确认地址、营业时间和消费信息的门店页"},
+    {"query": "金鸡湖附近烧鸟推荐", "cluster": "地域推荐", "intent": "附近就餐", "goal": "LOCAL", "stage": "转化", "state": "S2", "rank": null, "rank_label": "竞品占位", "coverage": "鸟王等", "evidence": "INFERRED", "has_citation": false, "checked_facts": 0, "accurate_facts": 0, "business_value": 4, "competition": 5, "suggested_asset": "金鸡湖场景落地页", "finding": "星悦汇区位优势没有形成独立可引用内容"},
+    {"query": "苏州相城烧鸟推荐", "cluster": "地域推荐", "intent": "附近就餐", "goal": "LOCAL", "stage": "转化", "state": "S2", "rank": null, "rank_label": "竞品/泛餐饮占位", "coverage": "品牌弱关联", "evidence": "INFERRED", "has_citation": false, "checked_facts": 0, "accurate_facts": 0, "business_value": 4, "competition": 4, "suggested_asset": "相城门店聚合页", "finding": "公司位于相城，但消费者门店证据不完整"},
+    {"query": "苏州日料自助推荐", "cluster": "相邻品类", "intent": "自助餐选择", "goal": "LOCAL", "stage": "考虑", "state": "S2", "rank": null, "rank_label": "大型日料自助占位", "coverage": "泛品类竞争", "evidence": "INFERRED", "has_citation": false, "checked_facts": 0, "accurate_facts": 0, "business_value": 4, "competition": 5, "suggested_asset": "日料自助差异页", "finding": "探鸟缺少烧鸟专门与综合日料自助的差异化说明"},
+    {"query": "苏州人均 150 元烧鸟", "cluster": "预算选择", "intent": "价格筛选", "goal": "SALES", "stage": "考虑", "state": "S2", "rank": null, "rank_label": "价格明确竞品占位", "coverage": "探鸟价格未知", "evidence": "INFERRED", "has_citation": false, "checked_facts": 0, "accurate_facts": 0, "business_value": 4, "competition": 5, "suggested_asset": "人均与套餐说明页", "finding": "缺少可靠人均价和套餐层级，无法进入预算型推荐"},
+    {"query": "苏州高性价比烧鸟", "cluster": "价值定位", "intent": "性价比比较", "goal": "SALES", "stage": "考虑", "state": "S2", "rank": null, "rank_label": "鸟王等占位", "coverage": "探鸟价值理由不足", "evidence": "INFERRED", "has_citation": false, "checked_facts": 0, "accurate_facts": 0, "business_value": 4, "competition": 5, "suggested_asset": "自助价值证明页", "finding": "自助模式的品类数量、时长和价格未被结构化表达"},
+    {"query": "苏州情侣约会烧鸟", "cluster": "约会场景", "intent": "场景选择", "goal": "SALES", "stage": "考虑", "state": "S2", "rank": null, "rank_label": "竞品占位", "coverage": "缺场景内容", "evidence": "INFERRED", "has_citation": false, "checked_facts": 0, "accurate_facts": 0, "business_value": 5, "competition": 4, "suggested_asset": "情侣约会场景页", "finding": "已有探店语境但缺官方环境、座位与预约信息"},
+    {"query": "苏州朋友聚餐烧鸟", "cluster": "聚餐场景", "intent": "场景选择", "goal": "SALES", "stage": "考虑", "state": "S2", "rank": null, "rank_label": "竞品占位", "coverage": "缺容量与套餐信息", "evidence": "INFERRED", "has_citation": false, "checked_facts": 0, "accurate_facts": 0, "business_value": 5, "competition": 4, "suggested_asset": "朋友聚餐解决方案页", "finding": "自助可能适合聚餐，但人数、时长和团购规则未知"},
+    {"query": "苏州生日聚餐烧鸟", "cluster": "庆祝场景", "intent": "场景选择", "goal": "SALES", "stage": "转化", "state": "S2", "rank": null, "rank_label": "场景餐厅占位", "coverage": "品牌未出现", "evidence": "INFERRED", "has_citation": false, "checked_facts": 0, "accurate_facts": 0, "business_value": 4, "competition": 4, "suggested_asset": "生日聚餐 FAQ", "finding": "缺蛋糕、布置、包间与多人套餐说明"},
+    {"query": "苏州夜宵烧鸟", "cluster": "夜宵场景", "intent": "即时到店", "goal": "LOCAL", "stage": "转化", "state": "S2", "rank": null, "rank_label": "夜间营业竞品占位", "coverage": "营业时间未知", "evidence": "INFERRED", "has_citation": false, "checked_facts": 0, "accurate_facts": 0, "business_value": 4, "competition": 5, "suggested_asset": "夜宵营业信息页", "finding": "没有最后点单与夜宵时段信息，无法支撑推荐"},
+    {"query": "苏州适合一人食的烧鸟", "cluster": "一人食场景", "intent": "场景选择", "goal": "SALES", "stage": "考虑", "state": "S2", "rank": null, "rank_label": "吧台型竞品占位", "coverage": "座位信息未知", "evidence": "INFERRED", "has_citation": false, "checked_facts": 0, "accurate_facts": 0, "business_value": 3, "competition": 4, "suggested_asset": "一人食指南", "finding": "自助对一人食是否友好缺少明确说明"},
+    {"query": "苏州哪家烧鸟食材新鲜？", "cluster": "品质信任", "intent": "质量比较", "goal": "REPUTATION", "stage": "考虑", "state": "S2", "rank": null, "rank_label": "供应链证据强的竞品占位", "coverage": "仅名称含鲜货", "evidence": "INFERRED", "has_citation": false, "checked_facts": 0, "accurate_facts": 0, "business_value": 5, "competition": 5, "suggested_asset": "食材与食品安全证据页", "finding": "品牌名称暗示新鲜，但没有来源、频次与品控证明"},
+    {"query": "苏州鲜活烧鸟自助", "cluster": "差异化品类", "intent": "特色选择", "goal": "BRAND", "stage": "考虑", "state": "S3", "rank": null, "rank_label": "短视频标签可见", "coverage": "鲜活/鲜货混用", "evidence": "INFERRED", "has_citation": false, "checked_facts": 1, "accurate_facts": 0, "business_value": 5, "competition": 3, "suggested_asset": "品类定义与证据页", "finding": "差异化词有潜力，但命名和含义未被官方定义"},
+    {"query": "探鸟和鸟王烧鸟哪个好？", "cluster": "竞品比较", "intent": "品牌比较", "goal": "SALES", "stage": "考虑", "state": "S1", "rank": null, "rank_label": "无可引用对比", "coverage": "竞品信息更完整", "evidence": "INFERRED", "has_citation": false, "checked_facts": 0, "accurate_facts": 0, "business_value": 4, "competition": 5, "suggested_asset": "自助与单点模式对比页", "finding": "缺少价格、菜品、场景和服务模式的客观比较"},
+    {"query": "探鸟和鸟剑哪个好？", "cluster": "竞品比较", "intent": "品牌比较", "goal": "SALES", "stage": "考虑", "state": "S1", "rank": null, "rank_label": "无可引用对比", "coverage": "鸟剑官网优势明显", "evidence": "INFERRED", "has_citation": false, "checked_facts": 0, "accurate_facts": 0, "business_value": 4, "competition": 5, "suggested_asset": "自助与居酒屋体验对比页", "finding": "探鸟缺少对其自助定位适合人群的清晰解释"},
+    {"query": "苏州烧鸟连锁品牌", "cluster": "连锁认知", "intent": "品牌发现", "goal": "BRAND", "stage": "认知", "state": "S2", "rank": null, "rank_label": "鸟剑等占位", "coverage": "连锁规模未知", "evidence": "INFERRED", "has_citation": false, "checked_facts": 0, "accurate_facts": 0, "business_value": 4, "competition": 5, "suggested_asset": "品牌发展与门店版图页", "finding": "用户给出连锁属性，但公开网络无法确认完整规模"},
+    {"query": "苏州烧鸟自助有没有刺身？", "cluster": "菜品决策", "intent": "菜单确认", "goal": "SALES", "stage": "转化", "state": "S1", "rank": null, "rank_label": "无官方答案", "coverage": "探店内容零散", "evidence": "INFERRED", "has_citation": false, "checked_facts": 0, "accurate_facts": 0, "business_value": 5, "competition": 4, "suggested_asset": "菜品范围 FAQ", "finding": "消费者关心的自助范围和限量规则没有标准答案"},
+    {"query": "苏州烧鸟自助团购价格", "cluster": "交易转化", "intent": "团购购买", "goal": "SALES", "stage": "转化", "state": "S1", "rank": null, "rank_label": "无稳定公开价格", "coverage": "平台内团购待核", "evidence": "INFERRED", "has_citation": false, "checked_facts": 0, "accurate_facts": 0, "business_value": 5, "competition": 5, "suggested_asset": "套餐与团购政策页", "finding": "缺少可索引价格、使用时段、限时和加价规则"}
+  ],
+  "search_performance": {
+    "disclaimer": "本节基于 2026-09-08 公开网页搜索、地图/点评聚合和内容可见性推断生成式搜索表现，不是登录态 ChatGPT、文心、通义、豆包等平台的实时实测。",
+    "evidence_state": "INFERRED",
+    "rows": [
+      {"query": "探鸟烧鸟是什么？", "category": "品牌认知", "status": "Mentioned", "rank": "—", "coverage": "主体与单店线索", "finding": "可识别公司和餐厅，但标准品牌定义缺失"},
+      {"query": "探鳥·鲜货烧鸟自助是什么？", "category": "精确实体", "status": "Recommended", "rank": "—", "coverage": "精确名称", "finding": "全称唯一性较强，但名称变体较多"},
+      {"query": "探鸟烧鸟有哪些门店？", "category": "门店发现", "status": "Not Found", "rank": "—", "coverage": "无完整清单", "finding": "连锁规模与在营门店无法从官方来源确认"},
+      {"query": "苏州烧鸟推荐", "category": "品类推荐", "status": "Competitor Won", "rank": "—", "coverage": "鸟王 / 鸟剑", "finding": "竞品拥有更完整的官网、门店页与评价证据"},
+      {"query": "苏州烧鸟自助推荐", "category": "自助品类", "status": "Competitor Won", "rank": "—", "coverage": "品牌未稳定出现", "finding": "核心品类与探鸟品牌关联不足"},
+      {"query": "苏州情侣约会烧鸟", "category": "消费场景", "status": "Competitor Won", "rank": "—", "coverage": "场景内容缺失", "finding": "缺环境、座位、预约与套餐证据"}
+    ]
+  },
+  "competitors": [
+    {"name": "鸟剑居酒屋", "score": 84, "position": "苏州起源，官网披露 43 家直营门店与完整品牌内容"},
+    {"name": "鸟王烧鸟", "score": 80, "position": "苏州中心门店约 4.6 分、近 4K 点评，多平台门店页完整"},
+    {"name": "黑羽烧鸟酒场", "score": 68, "position": "吴江门店约 4.6 分、516 条点评，单店口碑清晰"},
+    {"name": "丸藏·鸟町", "score": 64, "position": "本地连锁目录、地址与电话信息可检索"},
+    {"name": "探鳥·鲜货烧鸟自助", "score": 30.8, "position": "有点评基础，但官方知识资产和通用品类占位薄弱"}
+  ],
+  "issues": [
+    {"priority": "P0", "title": "品牌命名与实体关系不统一", "impact": "探鸟/探鳥、鲜货/鲜活及公司—门店关系可能被识别为不同实体", "action": "确定唯一标准名、别名、主体与各门店关系并形成权威实体页", "evidence": "VERIFIED"},
+    {"priority": "P0", "title": "缺少官方可引用知识源", "impact": "AI 无法稳定回答品牌定义、定位、门店和差异化", "action": "建设官网品牌页、门店页、菜单页、FAQ 和结构化数据", "evidence": "VERIFIED"},
+    {"priority": "P0", "title": "完整门店与在营状态未知", "impact": "连锁属性无法转化为地域推荐和到店导航", "action": "建立全量门店数据库并同步地图、点评和商场页面", "evidence": "UNKNOWN"},
+    {"priority": "P1", "title": "高价值通用品类被竞品占据", "impact": "苏州烧鸟、烧鸟自助与商圈推荐流量更容易流向鸟剑、鸟王", "action": "建设苏州烧鸟自助品类页、商圈页与客观比较资产", "evidence": "INFERRED"},
+    {"priority": "P1", "title": "菜单价格与消费规则不可索引", "impact": "预算、团购、预约、用餐时长等转化问题无法回答", "action": "公开结构化菜单、套餐、价格、时长、限量和预约规则", "evidence": "VERIFIED"},
+    {"priority": "P1", "title": "点评资产没有转化为推荐理由", "impact": "约 1.4K 条点评主要停留在封闭平台，跨平台引用能力弱", "action": "提炼高频好评、回应争议并发布可验证的门店口碑页", "evidence": "VERIFIED"},
+    {"priority": "P2", "title": "食材新鲜缺少证明链", "impact": "品牌差异化词无法支撑食品品质类推荐", "action": "披露供应链、到货频次、加工标准和食品安全记录", "evidence": "UNKNOWN"},
+    {"priority": "P2", "title": "约会、聚餐和夜宵场景内容缺失", "impact": "消费者高频场景无法触发品牌推荐", "action": "建立场景页并补充环境、容量、时段和套餐证据", "evidence": "INFERRED"}
+  ],
+  "asset_blueprint": [
+    {"priority": "P0", "problem": "品牌命名和实体关系不统一", "asset": "探鸟标准品牌实体页", "format": "官网品牌页 + Organization/Restaurant 结构化数据", "quantity": "1 个品牌主页 + 1 张实体关系图", "channels": ["官网", "微信公众号", "地图商户后台"], "owner": "品牌负责人 + 数字化负责人", "validation_queries": ["探鸟烧鸟是什么？", "探鸟和探鳥是同一个品牌吗？"], "metric": "两个问题事实准确率 ≥95%，简称不再产生实体歧义"},
+    {"priority": "P0", "problem": "完整门店清单与在营状态未知", "asset": "全量门店主数据", "format": "门店数据库 + 独立门店页", "quantity": "覆盖 100% 在营门店，每店 1 页", "channels": ["官网", "高德", "百度地图", "Apple Maps", "大众点评", "商场官网"], "owner": "运营部", "validation_queries": ["探鸟烧鸟有哪些门店？", "离我最近的探鸟烧鸟在哪里？"], "metric": "门店名称、地址、电话、营业时间和状态跨平台一致率 ≥95%"},
+    {"priority": "P0", "problem": "菜单价格与交易规则不可索引", "asset": "菜单与消费规则中心", "format": "HTML 菜单 + FAQ + 可下载菜单", "quantity": "1 套总菜单 + 每店差异字段 + 20 条 FAQ", "channels": ["官网", "点评平台", "小程序"], "owner": "产品运营 + 门店运营", "validation_queries": ["探鸟烧鸟菜单和价格？", "探鸟烧鸟自助有没有刺身？", "探鸟烧鸟怎么预约？"], "metric": "三类问题均达到 S3+，价格与规则可追溯到更新时间"},
+    {"priority": "P1", "problem": "烧鸟自助品类关联不足", "asset": "烧鸟自助品类解释页", "format": "品类页 + 菜品范围 + 模式对比 + FAQ", "quantity": "1 个核心页 + 3 篇对比内容", "channels": ["官网", "知乎", "小红书", "抖音"], "owner": "品牌内容团队", "validation_queries": ["苏州烧鸟自助推荐", "烧鸟自助和烧鸟居酒屋有什么区别？"], "metric": "品牌在两类问题中由 S2/S1 提升至 S3+"},
+    {"priority": "P1", "problem": "商圈与地域推荐缺失", "asset": "苏州商圈门店落地页", "format": "地域页 + 交通/停车/周边场景 + LocalBusiness 数据", "quantity": "每个核心商圈 1 页，首批 3 页", "channels": ["官网", "地图", "商场页面", "本地生活平台"], "owner": "本地增长负责人", "validation_queries": ["苏州中心烧鸟推荐", "苏州大悦城烧鸟推荐", "金鸡湖附近烧鸟推荐"], "metric": "首批三个商圈问题至少进入 S3"},
+    {"priority": "P1", "problem": "点评没有形成跨平台推荐理由", "asset": "门店口碑证据页", "format": "评价主题、样本量、日期、正负面反馈与整改记录", "quantity": "每店 1 页，季度更新", "channels": ["官网", "微信公众号", "点评平台商家回应"], "owner": "客服与品牌公关", "validation_queries": ["探鸟烧鸟怎么样？", "探鸟烧鸟有哪些差评？"], "metric": "品牌口碑问题具备可引用来源，负面主题有公开回应"},
+    {"priority": "P2", "problem": "鲜货/鲜活定位缺乏证明", "asset": "食材与食品安全证明包", "format": "供应商、到货频次、冷链、加工时限、许可与抽检记录", "quantity": "1 个方法页 + 每月更新记录", "channels": ["官网", "门店二维码", "公众号"], "owner": "供应链 + 食品安全负责人", "validation_queries": ["苏州哪家烧鸟食材新鲜？", "探鸟烧鸟的食材来源是什么？"], "metric": "品质问题达到 S3+，所有关键证明可核验"},
+    {"priority": "P2", "problem": "场景推荐内容不足", "asset": "消费场景内容簇", "format": "约会、朋友聚餐、生日、夜宵、一人食专题与真实案例", "quantity": "5 个场景页 + 15 篇体验内容", "channels": ["官网", "小红书", "抖音", "大众点评"], "owner": "内容营销部", "validation_queries": ["苏州情侣约会烧鸟", "苏州朋友聚餐烧鸟", "苏州夜宵烧鸟"], "metric": "五个场景问题中至少三个由 S2 提升至 S3+"}
+  ],
+  "opportunities": [
+    {"name": "品牌实体修复", "value": 5, "business_value": 5, "gap": 5, "feasibility": 5, "evidence_confidence": 5, "priority": "P0", "note": "低成本且影响所有品牌与门店问题"},
+    {"name": "烧鸟自助品类", "value": 5, "business_value": 5, "gap": 5, "feasibility": 4, "evidence_confidence": 4, "priority": "P1", "note": "最直接的差异化与到店入口"},
+    {"name": "商圈门店页", "value": 4, "business_value": 4, "gap": 5, "feasibility": 5, "evidence_confidence": 4, "priority": "P0", "note": "可快速修复本地实体与导航问题"},
+    {"name": "点评证据转化", "value": 4, "business_value": 4, "gap": 4, "feasibility": 4, "evidence_confidence": 5, "priority": "P1", "note": "复用既有 1.4K 评价基础"},
+    {"name": "约会聚餐场景", "value": 3, "business_value": 3, "gap": 5, "feasibility": 5, "evidence_confidence": 3, "priority": "P2", "note": "内容门槛低但需要真实体验素材"},
+    {"name": "竞品比较占位", "value": 5, "business_value": 5, "gap": 5, "feasibility": 3, "evidence_confidence": 4, "priority": "P1", "note": "需先补齐价格、菜单和模式证据"}
+  ],
+  "roadmap": [
+    {"window": "0–30 天", "theme": "实体与到店事实", "target": "让品牌、门店和交易信息可以被稳定识别", "actions": ["确定标准品牌名、简繁体与鲜货/鲜活统一口径", "确认全部在营门店及公司—品牌—门店关系", "上线品牌主页与首批门店页", "同步地图、点评、商场页面的名称、地址、电话和营业时间", "发布菜单、价格、预约、用餐时长与自助范围 FAQ"]},
+    {"window": "31–60 天", "theme": "品类与口碑证据", "target": "把烧鸟自助定位和既有点评转化为推荐理由", "actions": ["上线烧鸟自助品类解释页", "发布探鸟与单点烧鸟居酒屋的客观模式对比", "提炼点评高频主题并公开门店回应", "建立苏州中心、金鸡湖、相城/大悦城等地域页面", "完成供应链与食品安全证明包第一版"]},
+    {"window": "61–90 天", "theme": "场景增长与复测", "target": "争取在高价值本地问题中由缺席转为被提及", "actions": ["发布约会、聚餐、生日、夜宵和一人食场景内容", "邀请本地餐饮媒体进行可披露标准的客观测评", "按固定 30 题在多个 AI 平台开展登录态实测", "记录回答、排名、引用、竞品和事实错误", "以实测数据替换本报告中的推断状态并形成 V1.1 基线"]}
+  ],
+  "evidence_summary": [
+    {"state": "OBSERVED", "definition": "本次直接取得的网页、公开搜索结果、地图聚合或用户输入", "count": "用户实体描述、公司页、地图/点评聚合、网页搜索"},
+    {"state": "VERIFIED", "definition": "由公开来源确认的公司、单店与竞品事实", "count": "公司主体、星悦汇点评信号、鸟剑官网、鸟王门店页"},
+    {"state": "INFERRED", "definition": "由公开搜索可见性推断的生成式搜索状态", "count": "30 个问题状态、GEO 评分与机会判断"},
+    {"state": "UNKNOWN", "definition": "当前无法从公开来源确认的数据", "count": "完整门店数、菜单价格、营业时间、供应链与真实 AI 平台结果"}
+  ],
+  "evidence_registry": [
+    {"id": "E01", "claim": "诊断对象为苏州探鸟烧鸟连锁餐厅", "state": "OBSERVED", "source": "用户在本次对话提供的企业名称与连锁属性", "url": "", "date": "2026-09-08", "source_grade": "First-party input", "supports": "诊断对象、地域与连锁分析范围；具体门店数仍为 UNKNOWN"},
+    {"id": "E02", "claim": "苏州探鸟餐厅有限公司成立于 2024-12-26，经营状态存续，地址为苏州大悦城 L4-20", "state": "VERIFIED", "source": "智联招聘企业页中的工商信息", "url": "https://www.zhaopin.com/companydetail/CZL1505575670.htm", "date": "2026-09-08", "source_grade": "B", "supports": "公司主体、成立时间与大悦城地址"},
+    {"id": "E03", "claim": "星悦汇存在“探鳥·鲜货烧鸟自助”点评条目，聚合显示约 1.4K 条点评、4.0 分", "state": "VERIFIED", "source": "Apple Maps 页面中的 Dianping 相邻商户条目", "url": "https://maps.apple.com/place?place-id=H2710I3F968294C26C2", "date": "2026-09-08", "source_grade": "B", "supports": "单店存在性与第三方信任基础"},
+    {"id": "E04", "claim": "短视频/内容聚合中出现“探鳥·鲜货烧鸟自助（星悦汇店）”及苏州烧鸟自助标签", "state": "OBSERVED", "source": "什么值得买收录的公开内容聚合", "url": "https://post.smzdm.com/p/apqp30g0/", "date": "2026-09-08", "source_grade": "C", "supports": "社交内容存在与名称变体"},
+    {"id": "E05", "claim": "品牌精确查询未稳定返回官网、完整门店、菜单和价格页面", "state": "OBSERVED", "source": "2026-09-08 公开网页搜索快照", "url": "", "date": "2026-09-08", "source_grade": "Search observation", "supports": "知识完整度、官方知识源缺口与 P0 优先级"},
+    {"id": "E06", "claim": "鸟剑官网披露苏州起源、43 家直营门店、10 座城市及完整品牌内容", "state": "VERIFIED", "source": "鸟剑居酒屋官网", "url": "https://toriken.cn/", "date": "2026-09-08", "source_grade": "A", "supports": "竞品选择、竞争占位和官网知识资产差距"},
+    {"id": "E07", "claim": "鸟王苏州中心店公开聚合约 4.6 分、近 4K 条点评、人均约 118 元", "state": "VERIFIED", "source": "Apple Maps / Dianping 聚合与携程门店页", "url": "https://gs.ctrip.com/html5/you/foods/fooddetail/11/133472445.html", "date": "2026-09-08", "source_grade": "B", "supports": "竞品第三方信任与本地推荐占位"},
+    {"id": "E08", "claim": "烧鸟品类关注度在 2023 年后上升，行业出现更多烧鸟专门店", "state": "VERIFIED", "source": "烧鸟赛道公开行业材料（巨量算数、红餐大数据）", "url": "https://topm-1304002491.cos.ap-nanjing.myqcloud.com/storage/default/20250515/014215521e76dcc2f2bf86609ec474572d465f89.pdf", "date": "2026-09-08", "source_grade": "B", "supports": "品类机会与竞争加剧背景"},
+    {"id": "E09", "claim": "30 个问题在各 AI 平台的实际推荐、排名和引用", "state": "UNKNOWN", "source": "未进行登录态多平台实测", "url": "", "date": "2026-09-08", "source_grade": "Unavailable", "supports": "本报告仅提供公开搜索代理基线，需在 90 天内替换为实测"}
+  ],
+  "limitations": [
+    "未获得探鸟官网、内部品牌手册、完整门店清单、菜单、价格、供应链和经营数据。",
+    "用户提供了连锁属性，但公开网络无法确认准确门店数量及各门店与苏州探鸟餐厅有限公司的法律或运营关系。",
+    "星悦汇店点评分数与数量来自 2026-09-08 的聚合快照，会随平台更新变化。",
+    "30 个问题状态与 AI KPI 均为基于公开搜索表征的 INFERRED 代理，不是 ChatGPT、文心、通义、豆包等登录态平台实测。",
+    "竞品分数只衡量公开 GEO 资产和可见性，不代表营业收入、利润、食品质量或真实市场份额。",
+    "路线图目标是待复测的增长假设，不构成排名、到店或营收承诺。"
+  ]
+}

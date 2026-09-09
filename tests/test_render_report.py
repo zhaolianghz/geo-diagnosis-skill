@@ -61,6 +61,22 @@ class RenderReportTests(unittest.TestCase):
         self.assertIn("建议负责人", html)
         self.assertIn("来源等级", html)
         self.assertIn("支持结论", html)
+        self.assertIn('href="https://holahotels.cn"', html)
+
+    def test_opportunity_items_keep_axis_values_in_compact_layouts(self):
+        html = render_report(self.data)
+        first = self.data["opportunities"][0]
+        expected = (
+            f'商业价值 {first["business_value"]}/5 · '
+            f'可实现性 {first["feasibility"]}/5'
+        )
+        self.assertIn(expected, html)
+
+    def test_rejects_unsafe_evidence_links_from_html_output(self):
+        data = json.loads(json.dumps(self.data))
+        data["evidence_registry"][0]["url"] = "javascript:alert(1)"
+        html = render_report(data)
+        self.assertNotIn('href="javascript:', html)
 
     def test_uses_selected_style_without_changing_content(self):
         boardroom = render_report(self.data)
